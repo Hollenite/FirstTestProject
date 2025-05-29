@@ -1,4 +1,4 @@
-print("Welcome to Theme Park")
+print("Welcome to Wonderland Theme Park")
 age = input("What is Your Age?\n")
 
 age = int(age)
