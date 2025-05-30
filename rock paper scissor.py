@@ -28,6 +28,9 @@ list2 = ["rock", "paper", "scissor"]
 
 print("Press 0 for rock, 1 for paper, 2 for scissor")
 user_input = input()
+if user_input != "0" and user_input != "1" and user_input != "2":
+    print("PLEASE CHOOSE A CORECT NUMBER!!!")
+
 
 import random
 random_number = random.randint(0, 2)
@@ -53,35 +56,37 @@ random_number = random.randint(0, 2)
 #     print(scissor)
 
 user_input2 = list2[int(user_input)]
-user_input = list1[int(user_input)]
+user_input3 = list1[int(user_input)]
 print(f'You chose {user_input2}')
-print(user_input)
+print(user_input3)
 
 random_number2 = list2[random_number]
 random_number = list1[int(random_number)]
 print(f'I choose {random_number2}')
 print(random_number)
 
-if user_input == rock:
+if user_input3 == rock:
         if random_number == paper:
             print("You lose")
         elif random_number == scissor:
             print("You win")
         elif random_number == rock:
             print("Its a Draw")
-if user_input == paper:
+if user_input3 == paper:
         if random_number == rock:
             print("You win")
         elif random_number == scissor:
             print("You lose")
         elif random_number == paper:
             print("its a Draw")
-if user_input == scissor:
+if user_input3 == scissor:
         if random_number == rock:
             print("You lose")
         elif random_number == paper:
             print("You win")
         elif random_number == scissor:
             print("Its a Draw")
+
+
 
 
