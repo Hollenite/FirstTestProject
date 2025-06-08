@@ -1,3 +1,4 @@
+# DEBUG PENDING
 def turn_right():
     turn_left()
     turn_left()
@@ -17,11 +18,6 @@ while not at_goal():
         elif front_is_clear():
             turn_right()
             move()
-
-
-
-
-
 
 
 
