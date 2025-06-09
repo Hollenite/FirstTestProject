@@ -285,7 +285,7 @@ word_list = [
 import random
 chosen_word = random.choice(word_list)
 #Test code
-print(chosen_word)
+# print(chosen_word)
 length_of_chosen_word = len(chosen_word)
 display = ""
 for n in range(length_of_chosen_word):
