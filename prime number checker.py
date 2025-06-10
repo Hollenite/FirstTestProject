@@ -2,6 +2,7 @@ def prime_checker(number):
     x = 0
     for each_number in range(2, number):
         if number % each_number == 0:
+            # print(each_number)
             x += 1
     if x > 0:
         print(f"{number} is not prime")
