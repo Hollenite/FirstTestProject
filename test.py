@@ -25,51 +25,42 @@ shift = int(input("Type the shift number:\n"))
 
 
 list_of_text = list(text)
-def encrypt(shift_text):
+def encrypt(shift):
     display = ""
     indexn = []
     for n in range(len(text)):
         # print(text[n])
         indexn.append((alphabet.index(text[n])))
         # print(indexn)
-        value = indexn[n] + shift_text
+        value = indexn[n] + shift
         if value >= 26:
-            if shift_text >= 26:
-                shift_text %= 26
-                # print(indexn[n] + shift_text)
-                if indexn[n] + shift_text >= 26:
-                    indexn[n] -= 26
+            if shift >= 26:
+                shift %= 26
             else:
                 indexn[n] -= 26
 
-        display += alphabet[int(indexn[n]) + shift_text]
+        display += alphabet[int(indexn[n]) + shift]
     print(display)
     # print(list(display))
 
-def decrypt(cipher_shift):
+def decrypt():
     display = ""
     indexn = []
     for n in range(len(text)):
         # print(text[n])
         indexn.append((alphabet.index(text[n])))
         # print(indexn)
-        value = indexn[n] - cipher_shift
-        if value < 0:
-            if cipher_shift >= 26:
-                cipher_shift %= 26
-                print(indexn[n] - cipher_shift)
-                if indexn[n] - cipher_shift < 0:
-                    indexn[n] += 26
-            else:
-                indexn[n] += 26
-        display += alphabet[int(indexn[n]) - cipher_shift]
+        if indexn[n] - shift < 0:
+            value = indexn[n] - shift
+            indexn[n] = value + (26+shift)
+        display += alphabet[int(indexn[n]) - shift]
     print(display)
     # print(list(display))
 
 if direction == 'encode':
-    encrypt(shift_text=shift)
+    encrypt(shift)
 elif direction == 'decode':
-    decrypt(cipher_shift=shift)
+    decrypt()
 else:
     print("Invalid direction")
 
@@ -84,9 +75,9 @@ while continue1 == "yes":
 
     list_of_text = list(text)
     if direction == 'encode':
-        encrypt(shift_text=shift)
+        encrypt()
     elif direction == 'decode':
-        decrypt(cipher_shift=shift)
+        decrypt()
     else:
         print("Invalid direction")
     continue1 = "no"
