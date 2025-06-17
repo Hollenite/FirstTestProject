@@ -21,7 +21,7 @@ alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n'
 
 direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
 text = input("Type your message:\n").lower()
-shift = int(input("Type the shift number:\n"))
+shift = int(input("Type the shift NUMBER:\n"))
 
 
 list_of_text = list(text)
@@ -29,20 +29,26 @@ def encrypt(shift_text):
     display = ""
     indexn = []
     for n in range(len(text)):
-        # print(text[n])
-        indexn.append((alphabet.index(text[n])))
-        # print(indexn)
+        print(text[n])
+        if text[n] not in alphabet:
+            indexn.append(-1)
+        else:
+            indexn.append((alphabet.index(text[n])))
+        print(indexn)
         value = indexn[n] + shift_text
-        if value >= 26:
-            if shift_text >= 26:
-                shift_text %= 26
-                # print(indexn[n] + shift_text)
-                if indexn[n] + shift_text >= 26:
+        if indexn[n] == -1:
+            display += text[n]
+        else:
+            if value >= 26:
+                if shift_text >= 26:
+                    shift_text %= 26
+                    # print(indexn[n] + shift_text)
+                    if indexn[n] + shift_text >= 26:
+                        indexn[n] -= 26
+                else:
                     indexn[n] -= 26
-            else:
-                indexn[n] -= 26
-
-        display += alphabet[int(indexn[n]) + shift_text]
+        if indexn[n] != -1:
+            display += alphabet[int(indexn[n]) + shift_text]
     print(display)
     # print(list(display))
 
@@ -51,18 +57,25 @@ def decrypt(cipher_shift):
     indexn = []
     for n in range(len(text)):
         # print(text[n])
-        indexn.append((alphabet.index(text[n])))
+        if text[n] not in alphabet:
+            indexn.append(-1)
+        else:
+            indexn.append((alphabet.index(text[n])))
         # print(indexn)
         value = indexn[n] - cipher_shift
-        if value < 0:
-            if cipher_shift >= 26:
-                cipher_shift %= 26
-                print(indexn[n] - cipher_shift)
-                if indexn[n] - cipher_shift < 0:
+        if indexn[n] == -1:
+            display += text[n]
+        else:
+            if value < 0:
+                if cipher_shift >= 26:
+                    cipher_shift %= 26
+                    print(indexn[n] - cipher_shift)
+                    if indexn[n] - cipher_shift < 0:
+                        indexn[n] += 26
+                else:
                     indexn[n] += 26
-            else:
-                indexn[n] += 26
-        display += alphabet[int(indexn[n]) - cipher_shift]
+        if indexn[n] != -1:
+            display += alphabet[int(indexn[n]) - cipher_shift]
     print(display)
     # print(list(display))
 
