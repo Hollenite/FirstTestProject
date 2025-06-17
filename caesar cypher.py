@@ -29,12 +29,12 @@ def encrypt(shift_text):
     display = ""
     indexn = []
     for n in range(len(text)):
-        print(text[n])
+        # print(text[n])
         if text[n] not in alphabet:
             indexn.append(-1)
         else:
             indexn.append((alphabet.index(text[n])))
-        print(indexn)
+        # print(indexn)
         value = indexn[n] + shift_text
         if indexn[n] == -1:
             display += text[n]
