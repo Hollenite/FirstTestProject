@@ -30,7 +30,7 @@ def number_check():
         if new_listb[p] == "0":
             zero_b += 1
 
-    if zero_a >= n/2 and zero_b >= n/2:
+    if zero_a > n/2 and zero_b > n/2:
         print("YES")
     else :
         print("NO")
